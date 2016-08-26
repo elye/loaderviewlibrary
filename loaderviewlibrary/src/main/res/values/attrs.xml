@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="loader_view">
+        <attr name="length_weight" format="float" />
+    </declare-styleable>
+</resources>
