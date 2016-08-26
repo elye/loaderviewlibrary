@@ -74,6 +74,11 @@ public class LoaderImageView extends ImageView implements LoaderView {
     }
 
     @Override
+    public boolean valueSet() {
+        return (getDrawable() != null);
+    }
+
+    @Override
     public void setImageBitmap(Bitmap bm) {
         super.setImageBitmap(bm);
         loaderController.stopLoading();

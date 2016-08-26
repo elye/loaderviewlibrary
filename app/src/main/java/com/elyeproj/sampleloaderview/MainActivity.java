@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private void postLoadData() {
         ((TextView)findViewById(R.id.txt_name)).setText("Mr. Donald Trump");
         ((TextView)findViewById(R.id.txt_title)).setText("Presidency Candidate of United State");
-        ((TextView)findViewById(R.id.txt_phone)).setText("+001 1234 5678");
-        ((TextView)findViewById(R.id.txt_email)).setText("donald.trump@donaldtrump.com.au");
+        ((TextView)findViewById(R.id.txt_phone)).setText("+001 2345 6789");
+        ((TextView)findViewById(R.id.txt_email)).setText("donald.trump@donaldtrump.com");
         ((ImageView)findViewById(R.id.image_icon)).setImageResource(R.drawable.trump);
     }
 

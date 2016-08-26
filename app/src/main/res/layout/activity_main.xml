@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textSize="@dimen/standard_font_size"
-            app:length_weight="0.8" />
+            app:length_weight="0.9" />
 
     </LinearLayout>
 </RelativeLayout>

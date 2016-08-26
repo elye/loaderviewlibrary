@@ -50,7 +50,7 @@ class LoaderController {
     }
 
     public void onSizeChanged() {
-        if (valueAnimator != null) {
+        if (valueAnimator != null && !loaderView.valueSet()) {
             valueAnimator.start();
         }
     }

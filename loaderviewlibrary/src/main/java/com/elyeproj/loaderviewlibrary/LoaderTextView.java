@@ -23,6 +23,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Build;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
@@ -85,5 +86,10 @@ public class LoaderTextView extends TextView implements LoaderView {
         } else {
             rectPaint.setColor(LoaderConstant.COLOR_DEFAULT_GREY);
         }
+    }
+
+    @Override
+    public boolean valueSet() {
+        return !TextUtils.isEmpty(getText());
     }
 }

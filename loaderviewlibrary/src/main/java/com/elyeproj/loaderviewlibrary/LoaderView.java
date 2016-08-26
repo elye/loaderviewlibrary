@@ -22,4 +22,6 @@ interface LoaderView {
     void setRectColor(Paint rectPaint);
 
     void invalidate();
+
+    boolean valueSet();
 }
