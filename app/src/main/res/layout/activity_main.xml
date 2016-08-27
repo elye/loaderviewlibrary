@@ -37,7 +37,7 @@
             android:id="@+id/txt_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
             android:textSize="@dimen/standard_font_size"
             app:length_weight="1.0" />
 
@@ -45,7 +45,7 @@
             android:id="@+id/txt_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:textSize="@dimen/standard_font_size"
             app:length_weight="0.4" />
 
@@ -53,7 +53,7 @@
             android:id="@+id/txt_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:textSize="@dimen/standard_font_size"
             app:length_weight="0.9" />
 
