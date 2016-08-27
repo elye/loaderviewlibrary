@@ -31,7 +31,8 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/title_font_size"
             android:textStyle="bold"
-            app:length_weight="0.6" />
+            app:width_weight="0.6"
+            app:height_weight="0.8"/>
 
         <com.elyeproj.loaderviewlibrary.LoaderTextView
             android:id="@+id/txt_title"
@@ -39,7 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textSize="@dimen/standard_font_size"
-            app:length_weight="1.0" />
+            app:width_weight="1.0"
+            app:height_weight="0.8"/>
 
         <com.elyeproj.loaderviewlibrary.LoaderTextView
             android:id="@+id/txt_phone"
@@ -47,7 +49,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:textSize="@dimen/standard_font_size"
-            app:length_weight="0.4" />
+            app:width_weight="0.4"
+            app:height_weight="0.8"/>
 
         <com.elyeproj.loaderviewlibrary.LoaderTextView
             android:id="@+id/txt_email"
@@ -55,7 +58,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:textSize="@dimen/standard_font_size"
-            app:length_weight="0.9" />
+            app:width_weight="0.9"
+            app:height_weight="0.8"/>
 
     </LinearLayout>
 </RelativeLayout>

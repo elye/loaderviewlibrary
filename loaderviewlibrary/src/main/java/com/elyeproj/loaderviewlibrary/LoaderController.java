@@ -28,7 +28,8 @@ class LoaderController {
     private Paint rectPaint;
     private float progress;
     private ValueAnimator valueAnimator;
-    private float lengthWeight = LoaderConstant.MAX_LENGTH_WEIGHT;
+    private float widthWeight = LoaderConstant.MAX_WEIGHT;
+    private float heightWeight = LoaderConstant.MAX_WEIGHT;
 
     private final static int MAX_COLOR_CONSTANT_VALUE = 255;
     private final static int ANIMATION_CYCLE_DURATION = 750; //milis
@@ -45,8 +46,9 @@ class LoaderController {
     }
 
     public void onDraw(Canvas canvas) {
+        float margin_height = canvas.getHeight() * (1-heightWeight)/2;
         rectPaint.setAlpha((int)(progress * MAX_COLOR_CONSTANT_VALUE));
-        canvas.drawRect(0, 0, canvas.getWidth() * lengthWeight, canvas.getHeight(), rectPaint);
+        canvas.drawRect(0, margin_height, canvas.getWidth() * widthWeight, canvas.getHeight() - margin_height, rectPaint);
     }
 
     public void onSizeChanged() {
@@ -55,13 +57,20 @@ class LoaderController {
         }
     }
 
-    public void setLengthWeight(float lengthWeight) {
-        if (lengthWeight > LoaderConstant.MAX_LENGTH_WEIGHT)
-            this.lengthWeight = LoaderConstant.MAX_LENGTH_WEIGHT;
-        else if (lengthWeight < LoaderConstant.MIN_LENGTH_WEIGHT)
-            this.lengthWeight = LoaderConstant.MIN_LENGTH_WEIGHT;
-        else
-            this.lengthWeight = lengthWeight;
+    public void setHeightWeight(float heightWeight) {
+        this.heightWeight = validateWeight(heightWeight);
+    }
+
+    public void setWidthWeight(float widthWeight) {
+        this.widthWeight = validateWeight(widthWeight);
+    }
+
+    private float validateWeight(float weight) {
+        if (weight > LoaderConstant.MAX_WEIGHT)
+            return LoaderConstant.MAX_WEIGHT;
+        if (weight < LoaderConstant.MIN_WEIGHT)
+            return LoaderConstant.MIN_WEIGHT;
+        return weight;
     }
 
     public void stopLoading() {

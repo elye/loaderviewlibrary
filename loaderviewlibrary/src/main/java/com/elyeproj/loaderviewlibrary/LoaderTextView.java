@@ -55,7 +55,8 @@ public class LoaderTextView extends TextView implements LoaderView {
     private void init(AttributeSet attrs) {
         loaderController = new LoaderController(this);
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.loader_view, 0, 0);
-        loaderController.setLengthWeight(typedArray.getFloat(R.styleable.loader_view_length_weight, LoaderConstant.MAX_LENGTH_WEIGHT));
+        loaderController.setWidthWeight(typedArray.getFloat(R.styleable.loader_view_width_weight, LoaderConstant.MAX_WEIGHT));
+        loaderController.setHeightWeight(typedArray.getFloat(R.styleable.loader_view_height_weight, LoaderConstant.MAX_WEIGHT));
 
     }
 

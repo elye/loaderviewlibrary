@@ -20,17 +20,25 @@ Provide both TextView and ImageView the ability to show shimmer (animation loade
          android:layout_height="100dp" />
     ```
 
-3. Define the % length of the TextView that shows the loading animation with `length_weight`
+3. Define the % width of the TextView that shows the loading animation with `width_weight`
     ```xml
     <com.elyeproj.loaderviewlibrary.LoaderTextView
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
-         app:length_weight="0.4" />
+         app:width_weight="0.4" />
     ```
 
-3. Setting the Text Style as BOLD would darken the loading shimmer
+4. Define the % height of the TextView that shows the loading animation with `height_weight`
+    ```xml
+    <com.elyeproj.loaderviewlibrary.LoaderTextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         app:height_weight="0.4" />
+    ```
 
-4. Other feature of TextView and ImageView is still applicable.
+5. Setting the Text Style as BOLD would darken the loading shimmer
+
+6. Other feature of TextView and ImageView is still applicable.
 
 ## Requirement
 Android SDK API Version 16 and above.
@@ -39,7 +47,7 @@ Android SDK API Version 16 and above.
 On your module `build.gradle`, add
 
     dependencies {
-        compile 'com.elyeproj.libraries:loaderviewlibrary:1.0.2'
+        compile 'com.elyeproj.libraries:loaderviewlibrary:1.0.3'
     }
 
 ## Licence
