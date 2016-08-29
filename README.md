@@ -1,4 +1,7 @@
 # Loader View for Android
+
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Loader%20View%20for%20Android-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/4243)
+
 ## What It Is
 Provide both TextView and ImageView the ability to show shimmer (animation loader) before any text or image is shown. Useful when waiting for data to be loaded from the network. Example below
 
