@@ -3,7 +3,9 @@ package com.elyeproj.loaderviewlibrary;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.graphics.Canvas;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
+import android.graphics.Shader;
 import android.view.animation.LinearInterpolator;
 
 /*
@@ -26,6 +28,7 @@ class LoaderController {
 
     private LoaderView loaderView;
     private Paint rectPaint;
+    private LinearGradient linearGradient;
     private float progress;
     private ValueAnimator valueAnimator;
     private float widthWeight = LoaderConstant.MAX_WEIGHT;
@@ -48,6 +51,10 @@ class LoaderController {
     public void onDraw(Canvas canvas) {
         float margin_height = canvas.getHeight() * (1-heightWeight)/2;
         rectPaint.setAlpha((int)(progress * MAX_COLOR_CONSTANT_VALUE));
+        if (linearGradient == null) {
+            linearGradient = new LinearGradient(0, 0, canvas.getWidth(), 0, rectPaint.getColor(), LoaderConstant.COLOR_DEFAULT_GRADIENT, Shader.TileMode.MIRROR);
+        }
+        rectPaint.setShader(linearGradient);
         canvas.drawRect(0, margin_height, canvas.getWidth() * widthWeight, canvas.getHeight() - margin_height, rectPaint);
     }
 
