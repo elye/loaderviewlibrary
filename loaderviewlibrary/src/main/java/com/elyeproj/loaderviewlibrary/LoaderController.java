@@ -52,7 +52,7 @@ class LoaderController {
         float margin_height = canvas.getHeight() * (1-heightWeight)/2;
         rectPaint.setAlpha((int)(progress * MAX_COLOR_CONSTANT_VALUE));
         if (linearGradient == null) {
-            linearGradient = new LinearGradient(0, 0, canvas.getWidth(), 0, rectPaint.getColor(), LoaderConstant.COLOR_DEFAULT_GRADIENT, Shader.TileMode.MIRROR);
+            linearGradient = new LinearGradient(0, 0, canvas.getWidth() * widthWeight, 0, rectPaint.getColor(), LoaderConstant.COLOR_DEFAULT_GRADIENT, Shader.TileMode.MIRROR);
         }
         rectPaint.setShader(linearGradient);
         canvas.drawRect(0, margin_height, canvas.getWidth() * widthWeight, canvas.getHeight() - margin_height, rectPaint);
