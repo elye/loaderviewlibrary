@@ -36,9 +36,17 @@ Provide both TextView and ImageView the ability to show shimmer (animation loade
          app:height_weight="0.4" />
     ```
 
-5. Setting the Text Style as BOLD would darken the loading shimmer
+5. Define use gradient of the TextView or ImageView that shows the gradient with `use_gradient`
+    ```xml
+    <com.elyeproj.loaderviewlibrary.LoaderTextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         app:use_gradient="true" />
+    ```
 
-6. Other feature of TextView and ImageView is still applicable.
+6. Setting the Text Style as BOLD would darken the loading shimmer
+
+7. Other feature of TextView and ImageView is still applicable.
 
 ## Requirement
 Android SDK API Version 16 and above.

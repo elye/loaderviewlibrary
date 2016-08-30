@@ -15,7 +15,8 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp" />
+        android:layout_marginRight="16dp"
+        app:use_gradient="true"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,7 +33,8 @@
             android:textSize="@dimen/title_font_size"
             android:textStyle="bold"
             app:width_weight="0.6"
-            app:height_weight="0.8"/>
+            app:height_weight="0.8"
+            app:use_gradient="true"/>
 
         <com.elyeproj.loaderviewlibrary.LoaderTextView
             android:id="@+id/txt_title"
