@@ -36,7 +36,7 @@ Provide both TextView and ImageView the ability to show shimmer (animation loade
     <com.elyeproj.loaderviewlibrary.LoaderTextView
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
-         app:height_weight="0.4" />
+         app:height_weight="0.8" />
     ```
 
 5. Define use gradient of the TextView or ImageView that shows the gradient with `use_gradient`
@@ -58,7 +58,7 @@ Android SDK API Version 16 and above.
 On your module `build.gradle`, add
 
     dependencies {
-        compile 'com.elyeproj.libraries:loaderviewlibrary:1.0.3'
+        compile 'com.elyeproj.libraries:loaderviewlibrary:1.1.0'
     }
 
 ## Licence
