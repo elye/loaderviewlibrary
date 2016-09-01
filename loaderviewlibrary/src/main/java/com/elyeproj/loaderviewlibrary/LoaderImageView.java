@@ -18,6 +18,7 @@ package com.elyeproj.loaderviewlibrary;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -33,27 +34,30 @@ public class LoaderImageView extends ImageView implements LoaderView {
 
     public LoaderImageView(Context context) {
         super(context);
-        init();
+        init(null);
     }
 
     public LoaderImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
+        init(attrs);
     }
 
     public LoaderImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
+        init(attrs);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public LoaderImageView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init();
+        init(attrs);
     }
 
-    private void init() {
+    private void init(AttributeSet attrs) {
         loaderController = new LoaderController(this);
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.loader_view, 0, 0);
+        loaderController.setUseGradient(typedArray.getBoolean(R.styleable.loader_view_use_gradient, LoaderConstant.USE_GRADIENT_DEFAULT));
+        typedArray.recycle();
     }
 
     @Override

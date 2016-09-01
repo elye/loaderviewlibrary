@@ -3,7 +3,9 @@ package com.elyeproj.loaderviewlibrary;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.graphics.Canvas;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
+import android.graphics.Shader;
 import android.view.animation.LinearInterpolator;
 
 /*
@@ -26,10 +28,12 @@ class LoaderController {
 
     private LoaderView loaderView;
     private Paint rectPaint;
+    private LinearGradient linearGradient;
     private float progress;
     private ValueAnimator valueAnimator;
     private float widthWeight = LoaderConstant.MAX_WEIGHT;
     private float heightWeight = LoaderConstant.MAX_WEIGHT;
+    private boolean useGradient = LoaderConstant.USE_GRADIENT_DEFAULT;
 
     private final static int MAX_COLOR_CONSTANT_VALUE = 255;
     private final static int ANIMATION_CYCLE_DURATION = 750; //milis
@@ -48,7 +52,17 @@ class LoaderController {
     public void onDraw(Canvas canvas) {
         float margin_height = canvas.getHeight() * (1-heightWeight)/2;
         rectPaint.setAlpha((int)(progress * MAX_COLOR_CONSTANT_VALUE));
+        if (useGradient) {
+            prepareGradient(canvas.getWidth() * widthWeight);
+        }
         canvas.drawRect(0, margin_height, canvas.getWidth() * widthWeight, canvas.getHeight() - margin_height, rectPaint);
+    }
+
+    private void prepareGradient(float width) {
+        if (linearGradient == null) {
+            linearGradient = new LinearGradient(0, 0, width, 0, rectPaint.getColor(), LoaderConstant.COLOR_DEFAULT_GRADIENT, Shader.TileMode.MIRROR);
+        }
+        rectPaint.setShader(linearGradient);
     }
 
     public void onSizeChanged() {
@@ -63,6 +77,10 @@ class LoaderController {
 
     public void setWidthWeight(float widthWeight) {
         this.widthWeight = validateWeight(widthWeight);
+    }
+
+    public void setUseGradient(boolean useGradient) {
+        this.useGradient = useGradient;
     }
 
     private float validateWeight(float weight) {
