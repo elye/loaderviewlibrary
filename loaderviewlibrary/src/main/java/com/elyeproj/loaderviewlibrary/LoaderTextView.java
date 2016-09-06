@@ -83,7 +83,8 @@ public class LoaderTextView extends TextView implements LoaderView {
 
     @Override
     public void setRectColor(Paint rectPaint) {
-        if (getTypeface().getStyle()== Typeface.BOLD ) {
+        final Typeface typeface = getTypeface();
+        if (typeface != null && typeface.getStyle()== Typeface.BOLD ) {
             rectPaint.setColor(LoaderConstant.COLOR_DARKER_GREY);
         } else {
             rectPaint.setColor(LoaderConstant.COLOR_DEFAULT_GREY);

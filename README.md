@@ -58,7 +58,7 @@ Android SDK API Version 16 and above.
 On your module `build.gradle`, add
 
     dependencies {
-        compile 'com.elyeproj.libraries:loaderviewlibrary:1.1.0'
+        compile 'com.elyeproj.libraries:loaderviewlibrary:1.1.1'
     }
 
 ## Licence
