@@ -1,67 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.elyeproj.sampleloaderview.MainActivity">
 
-    <com.elyeproj.loaderviewlibrary.LoaderImageView
-        android:id="@+id/image_icon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        app:use_gradient="true"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <LinearLayout
+        <com.elyeproj.loaderviewlibrary.LoaderImageView
+            android:id="@+id/image_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:use_gradient="true" />
+
+        <LinearLayout
+            android:id="@+id/container_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/image_icon"
+            android:layout_toRightOf="@id/image_icon"
+            android:orientation="vertical">
+
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:id="@+id/txt_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/title_font_size"
+                android:textStyle="bold"
+                app:height_weight="0.8"
+                app:use_gradient="true"
+                app:width_weight="0.6" />
+
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:id="@+id/txt_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="@dimen/standard_font_size"
+                app:height_weight="0.8"
+                app:width_weight="1.0" />
+
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:id="@+id/txt_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="@dimen/standard_font_size"
+                app:height_weight="0.8"
+                app:width_weight="0.4" />
+
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
+                android:id="@+id/txt_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="@dimen/standard_font_size"
+                app:height_weight="0.8"
+                app:width_weight="0.9" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_reset"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@id/image_icon"
-        android:layout_toRightOf="@id/image_icon"
-        android:orientation="vertical">
-
-        <com.elyeproj.loaderviewlibrary.LoaderTextView
-            android:id="@+id/txt_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/title_font_size"
-            android:textStyle="bold"
-            app:width_weight="0.6"
-            app:height_weight="0.8"
-            app:use_gradient="true"/>
-
-        <com.elyeproj.loaderviewlibrary.LoaderTextView
-            android:id="@+id/txt_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textSize="@dimen/standard_font_size"
-            app:width_weight="1.0"
-            app:height_weight="0.8"/>
-
-        <com.elyeproj.loaderviewlibrary.LoaderTextView
-            android:id="@+id/txt_phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textSize="@dimen/standard_font_size"
-            app:width_weight="0.4"
-            app:height_weight="0.8"/>
-
-        <com.elyeproj.loaderviewlibrary.LoaderTextView
-            android:id="@+id/txt_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textSize="@dimen/standard_font_size"
-            app:width_weight="0.9"
-            app:height_weight="0.8"/>
-
-    </LinearLayout>
-</RelativeLayout>
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:onClick="resetLoader"
+        android:text="@string/btn_reset" />
+</LinearLayout>

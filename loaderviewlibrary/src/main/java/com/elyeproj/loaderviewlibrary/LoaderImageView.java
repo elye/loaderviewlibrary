@@ -60,6 +60,13 @@ public class LoaderImageView extends ImageView implements LoaderView {
         typedArray.recycle();
     }
 
+    public void resetLoader() {
+        if (getDrawable() != null) {
+            super.setImageDrawable(null);
+            loaderController.startLoading();
+        }
+    }
+
     @Override
     protected void onSizeChanged(int width, int height, int oldWidth, int oldHeight) {
         super.onSizeChanged(width, height, oldWidth, oldHeight);

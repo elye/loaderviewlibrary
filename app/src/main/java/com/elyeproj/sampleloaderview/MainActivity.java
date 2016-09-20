@@ -3,12 +3,17 @@ package com.elyeproj.sampleloaderview;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.elyeproj.loaderviewlibrary.LoaderImageView;
+import com.elyeproj.loaderviewlibrary.LoaderTextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private int WAIT_DURATION = 5000;
+    private DummyWait dummyWait;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +23,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadData() {
-        new DummyWait().execute();
+        if (dummyWait != null) {
+            dummyWait.cancel(true);
+        }
+        dummyWait = new DummyWait();
+        dummyWait.execute();
     }
 
     private void postLoadData() {
@@ -29,6 +38,14 @@ public class MainActivity extends AppCompatActivity {
         ((ImageView)findViewById(R.id.image_icon)).setImageResource(R.drawable.trump);
     }
 
+    public void resetLoader(View view) {
+        ((LoaderTextView)findViewById(R.id.txt_name)).resetLoader();
+        ((LoaderTextView)findViewById(R.id.txt_title)).resetLoader();
+        ((LoaderTextView)findViewById(R.id.txt_phone)).resetLoader();
+        ((LoaderTextView)findViewById(R.id.txt_email)).resetLoader();
+        ((LoaderImageView)findViewById(R.id.image_icon)).resetLoader();
+        loadData();
+    }
 
     class DummyWait extends AsyncTask<Void, Void, Void> {
         @Override

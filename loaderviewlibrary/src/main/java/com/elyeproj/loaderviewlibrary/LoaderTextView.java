@@ -67,6 +67,13 @@ public class LoaderTextView extends TextView implements LoaderView {
         loaderController.onSizeChanged();
     }
 
+    public void resetLoader() {
+        if (!TextUtils.isEmpty(getText())) {
+            super.setText(null);
+            loaderController.startLoading();
+        }
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);

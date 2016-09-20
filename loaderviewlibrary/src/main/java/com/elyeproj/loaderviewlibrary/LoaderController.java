@@ -58,15 +58,23 @@ class LoaderController {
         canvas.drawRect(0, margin_height, canvas.getWidth() * widthWeight, canvas.getHeight() - margin_height, rectPaint);
     }
 
+    public void onSizeChanged() {
+        linearGradient = null;
+        startLoading();
+    }
+
     private void prepareGradient(float width) {
         if (linearGradient == null) {
-            linearGradient = new LinearGradient(0, 0, width, 0, rectPaint.getColor(), LoaderConstant.COLOR_DEFAULT_GRADIENT, Shader.TileMode.MIRROR);
+            linearGradient = new LinearGradient(0, 0, width, 0, rectPaint.getColor(),
+                    LoaderConstant.COLOR_DEFAULT_GRADIENT, Shader.TileMode.MIRROR);
         }
         rectPaint.setShader(linearGradient);
     }
 
-    public void onSizeChanged() {
+    public void startLoading() {
         if (valueAnimator != null && !loaderView.valueSet()) {
+            valueAnimator.cancel();
+            init();
             valueAnimator.start();
         }
     }
