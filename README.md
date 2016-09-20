@@ -51,6 +51,12 @@ Provide both TextView and ImageView the ability to show shimmer (animation loade
 
 7. Other feature of TextView and ImageView is still applicable.
 
+8. Reset and show shimmer (animation loader) again by calling the below API
+    ```java
+    myLoaderTextView.resetLoader();
+    myLoaderImageView.resetLoader();
+    ```
+
 ## Requirement
 Android SDK API Version 16 and above.
 
@@ -58,8 +64,12 @@ Android SDK API Version 16 and above.
 On your module `build.gradle`, add
 
     dependencies {
-        compile 'com.elyeproj.libraries:loaderviewlibrary:1.1.1'
+        compile 'com.elyeproj.libraries:loaderviewlibrary:1.2.0'
     }
+
+## What's new in 1.2.0
+1. Add ability to reset loaderShimmer as per point 8 in Feature section
+2. Fix bugs related to orientation changes (gradient width not resized and shimmer non-stop animating)
 
 ## Licence
 
