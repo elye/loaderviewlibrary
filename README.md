@@ -64,10 +64,10 @@ Android SDK API Version 16 and above.
 On your module `build.gradle`, add
 
     dependencies {
-        compile 'com.elyeproj.libraries:loaderviewlibrary:1.2.0'
+        compile 'com.elyeproj.libraries:loaderviewlibrary:1.2.1'
     }
 
-## What's new in 1.2.0
+## What's new in 1.2.1
 1. Add ability to reset loaderShimmer as per point 8 in Feature section
 2. Fix bugs related to orientation changes (gradient width not resized and shimmer non-stop animating)
 
