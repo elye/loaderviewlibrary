@@ -64,8 +64,11 @@ Android SDK API Version 16 and above.
 On your module `build.gradle`, add
 
     dependencies {
-        compile 'com.elyeproj.libraries:loaderviewlibrary:1.2.1'
+        compile 'com.elyeproj.libraries:loaderviewlibrary:1.2.2'
     }
+
+## What's new in 1.2.2
+1. Support down to minSdkVersion 15
 
 ## What's new in 1.2.1
 1. Add ability to reset loaderShimmer as per point 8 in Feature section
