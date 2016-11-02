@@ -16,18 +16,16 @@ package com.elyeproj.loaderviewlibrary;
  * limitations under the License.
  */
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.os.Build;
+import android.support.v7.widget.AppCompatTextView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
-public class LoaderTextView extends TextView implements LoaderView {
+public class LoaderTextView extends AppCompatTextView implements LoaderView {
 
     private LoaderController loaderController;
 
@@ -43,12 +41,6 @@ public class LoaderTextView extends TextView implements LoaderView {
 
     public LoaderTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(attrs);
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public LoaderTextView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
         init(attrs);
     }
 

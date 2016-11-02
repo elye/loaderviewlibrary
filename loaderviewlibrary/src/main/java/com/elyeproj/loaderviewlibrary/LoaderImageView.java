@@ -16,7 +16,6 @@ package com.elyeproj.loaderviewlibrary;
  * limitations under the License.
  */
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -24,11 +23,10 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
-import android.os.Build;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
-import android.widget.ImageView;
 
-public class LoaderImageView extends ImageView implements LoaderView {
+public class LoaderImageView extends AppCompatImageView implements LoaderView {
 
     private LoaderController loaderController;
 
@@ -44,12 +42,6 @@ public class LoaderImageView extends ImageView implements LoaderView {
 
     public LoaderImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(attrs);
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public LoaderImageView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
         init(attrs);
     }
 
