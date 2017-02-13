@@ -60,20 +60,15 @@ class LoaderController {
     }
 
     public void onDraw(TextView textView, Canvas canvas) {
-        float paddingLeft = textView.getPaddingLeft() + textView.getCompoundPaddingLeft();
-        float paddingTop = textView.getPaddingTop() + textView.getCompoundPaddingTop();
-        float paddingRight = textView.getPaddingRight() + textView.getCompoundPaddingRight();
-        float paddingBottom = textView.getPaddingBottom() + textView.getCompoundPaddingBottom();
-
         float margin_height = canvas.getHeight() * (1 - heightWeight) / 2;
 
         rectPaint.setAlpha((int) (progress * MAX_COLOR_CONSTANT_VALUE));
 
         canvas.drawRect(
-                paddingLeft,
-                margin_height + paddingTop,
-                canvas.getWidth() * widthWeight + paddingRight,
-                canvas.getHeight() - margin_height - paddingBottom,
+                textView.getCompoundPaddingLeft(),
+                margin_height + textView.getCompoundPaddingTop(),
+                canvas.getWidth() * widthWeight - textView.getCompoundPaddingRight(),
+                canvas.getHeight() - margin_height - textView.getCompoundPaddingBottom(),
                 rectPaint
         );
     }
