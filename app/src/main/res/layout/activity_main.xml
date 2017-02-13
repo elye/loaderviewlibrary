@@ -56,6 +56,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:drawableLeft="@drawable/ic_phone_grey_500_18dp"
+                android:drawableStart="@drawable/ic_phone_grey_500_18dp"
+                android:drawablePadding="8dp"
                 android:textSize="@dimen/standard_font_size"
                 app:height_weight="0.8"
                 app:width_weight="0.4" />
@@ -65,6 +68,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:drawableLeft="@drawable/ic_mail_outline_grey_500_18dp"
+                android:drawableStart="@drawable/ic_mail_outline_grey_500_18dp"
+                android:drawablePadding="8dp"
                 android:textSize="@dimen/standard_font_size"
                 app:height_weight="0.8"
                 app:width_weight="0.9" />
