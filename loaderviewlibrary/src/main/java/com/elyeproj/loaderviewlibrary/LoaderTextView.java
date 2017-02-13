@@ -77,7 +77,7 @@ public class LoaderTextView extends TextView implements LoaderView {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        loaderController.onDraw(canvas);
+        loaderController.onDraw(this, canvas);
     }
 
     @Override

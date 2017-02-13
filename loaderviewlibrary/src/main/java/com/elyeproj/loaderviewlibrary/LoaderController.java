@@ -7,6 +7,7 @@ import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Shader;
 import android.view.animation.LinearInterpolator;
+import android.widget.TextView;
 
 /*
  * Copyright 2016 Elye Project
@@ -56,6 +57,25 @@ class LoaderController {
             prepareGradient(canvas.getWidth() * widthWeight);
         }
         canvas.drawRect(0, margin_height, canvas.getWidth() * widthWeight, canvas.getHeight() - margin_height, rectPaint);
+    }
+
+    public void onDraw(TextView textView, Canvas canvas) {
+        float paddingLeft = textView.getPaddingLeft() + textView.getCompoundPaddingLeft();
+        float paddingTop = textView.getPaddingTop() + textView.getCompoundPaddingTop();
+        float paddingRight = textView.getPaddingRight() + textView.getCompoundPaddingRight();
+        float paddingBottom = textView.getPaddingBottom() + textView.getCompoundPaddingBottom();
+
+        float margin_height = canvas.getHeight() * (1 - heightWeight) / 2;
+
+        rectPaint.setAlpha((int) (progress * MAX_COLOR_CONSTANT_VALUE));
+
+        canvas.drawRect(
+                paddingLeft,
+                margin_height + paddingTop,
+                canvas.getWidth() * widthWeight + paddingRight,
+                canvas.getHeight() - margin_height - paddingBottom,
+                rectPaint
+        );
     }
 
     public void onSizeChanged() {
