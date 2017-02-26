@@ -58,7 +58,7 @@ Provide both TextView and ImageView the ability to show shimmer (animation loade
     ```
 
 ## Requirement
-Android SDK API Version 16 and above.
+Android SDK API Version 15 and above.
 
 ## Importing the Library
 On your module `build.gradle`, add
