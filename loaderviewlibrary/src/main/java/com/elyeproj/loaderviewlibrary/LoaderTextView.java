@@ -69,7 +69,10 @@ public class LoaderTextView extends AppCompatTextView implements LoaderView {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        loaderController.onDraw(this, canvas);
+        loaderController.onDraw(canvas, getCompoundPaddingLeft(),
+                getCompoundPaddingTop(),
+                getCompoundPaddingRight(),
+                getCompoundPaddingBottom());
     }
 
     @Override

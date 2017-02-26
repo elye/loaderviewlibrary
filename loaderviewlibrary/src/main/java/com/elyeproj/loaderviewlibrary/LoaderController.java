@@ -7,7 +7,6 @@ import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Shader;
 import android.view.animation.LinearInterpolator;
-import android.widget.TextView;
 
 /*
  * Copyright 2016 Elye Project
@@ -51,26 +50,20 @@ class LoaderController {
     }
 
     public void onDraw(Canvas canvas) {
-        float margin_height = canvas.getHeight() * (1-heightWeight)/2;
-        rectPaint.setAlpha((int)(progress * MAX_COLOR_CONSTANT_VALUE));
+        onDraw(canvas, 0, 0, 0, 0);
+    }
+
+    public void onDraw(Canvas canvas, float left_pad, float top_pad, float right_pad, float bottom_pad) {
+        float margin_height = canvas.getHeight() * (1 - heightWeight) / 2;
+        rectPaint.setAlpha((int) (progress * MAX_COLOR_CONSTANT_VALUE));
         if (useGradient) {
             prepareGradient(canvas.getWidth() * widthWeight);
         }
-        canvas.drawRect(0, margin_height, canvas.getWidth() * widthWeight, canvas.getHeight() - margin_height, rectPaint);
-    }
-
-    public void onDraw(TextView textView, Canvas canvas) {
-        float margin_height = canvas.getHeight() * (1 - heightWeight) / 2;
-
-        rectPaint.setAlpha((int) (progress * MAX_COLOR_CONSTANT_VALUE));
-
-        canvas.drawRect(
-                textView.getCompoundPaddingLeft(),
-                margin_height + textView.getCompoundPaddingTop(),
-                canvas.getWidth() * widthWeight - textView.getCompoundPaddingRight(),
-                canvas.getHeight() - margin_height - textView.getCompoundPaddingBottom(),
-                rectPaint
-        );
+        canvas.drawRect(0 + left_pad,
+                margin_height + top_pad,
+                canvas.getWidth() * widthWeight - right_pad,
+                canvas.getHeight() - margin_height - bottom_pad,
+                rectPaint);
     }
 
     public void onSizeChanged() {
