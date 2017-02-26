@@ -64,8 +64,12 @@ Android SDK API Version 16 and above.
 On your module `build.gradle`, add
 
     dependencies {
-        compile 'com.elyeproj.libraries:loaderviewlibrary:1.2.2'
+        compile 'com.elyeproj.libraries:loaderviewlibrary:1.3.0'
     }
+
+## What's new in 1.3.0
+1. Support AppCompat
+2. Support TextView drawable
 
 ## What's new in 1.2.2
 1. Support down to minSdkVersion 15
