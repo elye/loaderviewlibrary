@@ -4,5 +4,6 @@
         <attr name="width_weight" format="float" />
         <attr name="height_weight" format="float" />
         <attr name="use_gradient" format="boolean" />
+        <attr name="corners" format="integer" />
     </declare-styleable>
 </resources>
