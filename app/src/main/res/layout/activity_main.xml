@@ -21,7 +21,8 @@
             android:layout_height="100dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            app:use_gradient="true" />
+            app:use_gradient="true"
+            app:corners="16" />
 
         <LinearLayout
             android:id="@+id/container_text"
@@ -49,7 +50,8 @@
                 android:layout_marginTop="8dp"
                 android:textSize="@dimen/standard_font_size"
                 app:height_weight="0.8"
-                app:width_weight="1.0" />
+                app:width_weight="1.0"
+                app:corners="32" />
 
             <com.elyeproj.loaderviewlibrary.LoaderTextView
                 android:id="@+id/txt_phone"
@@ -61,7 +63,8 @@
                 android:drawablePadding="8dp"
                 android:textSize="@dimen/standard_font_size"
                 app:height_weight="0.8"
-                app:width_weight="0.4" />
+                app:width_weight="0.4"
+                app:corners="16" />
 
             <com.elyeproj.loaderviewlibrary.LoaderTextView
                 android:id="@+id/txt_email"
@@ -73,7 +76,8 @@
                 android:drawablePadding="8dp"
                 android:textSize="@dimen/standard_font_size"
                 app:height_weight="0.8"
-                app:width_weight="0.9" />
+                app:width_weight="0.9"
+                app:corners="8" />
 
         </LinearLayout>
 

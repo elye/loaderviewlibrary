@@ -5,6 +5,7 @@ import android.animation.ValueAnimator;
 import android.graphics.Canvas;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.graphics.Shader;
 import android.view.animation.LinearInterpolator;
 
@@ -34,6 +35,7 @@ class LoaderController {
     private float widthWeight = LoaderConstant.MAX_WEIGHT;
     private float heightWeight = LoaderConstant.MAX_WEIGHT;
     private boolean useGradient = LoaderConstant.USE_GRADIENT_DEFAULT;
+    private int corners = LoaderConstant.CORNER_DEFAULT;
 
     private final static int MAX_COLOR_CONSTANT_VALUE = 255;
     private final static int ANIMATION_CYCLE_DURATION = 750; //milis
@@ -59,10 +61,11 @@ class LoaderController {
         if (useGradient) {
             prepareGradient(canvas.getWidth() * widthWeight);
         }
-        canvas.drawRect(0 + left_pad,
-                margin_height + top_pad,
-                canvas.getWidth() * widthWeight - right_pad,
-                canvas.getHeight() - margin_height - bottom_pad,
+        canvas.drawRoundRect(new RectF(0 + left_pad,
+                        margin_height + top_pad,
+                        canvas.getWidth() * widthWeight - right_pad,
+                        canvas.getHeight() - margin_height - bottom_pad),
+                corners, corners,
                 rectPaint);
     }
 
@@ -97,6 +100,10 @@ class LoaderController {
 
     public void setUseGradient(boolean useGradient) {
         this.useGradient = useGradient;
+    }
+
+    public void setCorners(int corners) {
+        this.corners = corners;
     }
 
     private float validateWeight(float weight) {
