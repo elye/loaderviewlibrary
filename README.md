@@ -47,11 +47,19 @@ Provide both TextView and ImageView the ability to show shimmer (animation loade
          app:use_gradient="true" />
     ```
 
-6. Setting the Text Style as BOLD would darken the loading shimmer
+6. Define rectangle round radius using `corner`. The default corner is 0.
+    ```xml
+    <com.elyeproj.loaderviewlibrary.LoaderTextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         app:corner="16" />
+    ```
 
-7. Other feature of TextView and ImageView is still applicable.
+7. Setting the Text Style as BOLD would darken the loading shimmer
 
-8. Reset and show shimmer (animation loader) again by calling the below API
+8. Other feature of TextView and ImageView is still applicable.
+
+9. Reset and show shimmer (animation loader) again by calling the below API
     ```java
     myLoaderTextView.resetLoader();
     myLoaderImageView.resetLoader();
@@ -67,16 +75,13 @@ On your module `build.gradle`, add
         compile 'com.elyeproj.libraries:loaderviewlibrary:1.3.0'
     }
 
+## What's new in 1.4.0
+1. Support Corner Rectangle shimmer
+
 ## What's new in 1.3.0
 1. Support AppCompat
 2. Support TextView drawable
 
-## What's new in 1.2.2
-1. Support down to minSdkVersion 15
-
-## What's new in 1.2.1
-1. Add ability to reset loaderShimmer as per point 8 in Feature section
-2. Fix bugs related to orientation changes (gradient width not resized and shimmer non-stop animating)
 
 ## Licence
 
