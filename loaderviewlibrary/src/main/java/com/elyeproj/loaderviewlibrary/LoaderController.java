@@ -25,7 +25,7 @@ import android.view.animation.LinearInterpolator;
  * limitations under the License.
  */
 
-class LoaderController {
+class LoaderController implements ValueAnimator.AnimatorUpdateListener {
 
     private LoaderView loaderView;
     private Paint rectPaint;
@@ -126,12 +126,16 @@ class LoaderController {
         valueAnimator.setDuration(ANIMATION_CYCLE_DURATION);
         valueAnimator.setRepeatMode(ValueAnimator.REVERSE);
         valueAnimator.setInterpolator(new LinearInterpolator());
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                progress = (float) animation.getAnimatedValue();
-                loaderView.invalidate();
-            }
-        });
+        valueAnimator.addUpdateListener(this);
+    }
+
+    @Override
+    public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        progress = (float) valueAnimator.getAnimatedValue();
+        loaderView.invalidate();
+    }
+
+    public void removeAnimatorUpdateListener() {
+        valueAnimator.removeUpdateListener(this);
     }
 }

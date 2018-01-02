@@ -98,4 +98,10 @@ public class LoaderTextView extends AppCompatTextView implements LoaderView {
     public boolean valueSet() {
         return !TextUtils.isEmpty(getText());
     }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        loaderController.removeAnimatorUpdateListener();
+    }
 }
