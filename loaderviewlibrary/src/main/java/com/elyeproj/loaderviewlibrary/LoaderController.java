@@ -115,9 +115,11 @@ class LoaderController implements ValueAnimator.AnimatorUpdateListener {
     }
 
     public void stopLoading() {
-        valueAnimator.cancel();
-        setValueAnimator(progress, 0, 0);
-        valueAnimator.start();
+        if (valueAnimator != null) {
+            valueAnimator.cancel();
+            setValueAnimator(progress, 0, 0);
+            valueAnimator.start();
+        }
     }
 
     private void setValueAnimator(float begin, float end, int repeatCount) {
@@ -136,6 +138,8 @@ class LoaderController implements ValueAnimator.AnimatorUpdateListener {
     }
 
     public void removeAnimatorUpdateListener() {
-        valueAnimator.removeUpdateListener(this);
+        if (valueAnimator != null) {
+            valueAnimator.removeUpdateListener(this);
+        }
     }
 }
