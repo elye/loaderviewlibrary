@@ -70,4 +70,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (dummyWait != null) {
+            dummyWait.cancel(true);
+        }
+    }
 }
