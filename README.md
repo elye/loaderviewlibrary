@@ -52,7 +52,7 @@ Provide both TextView and ImageView the ability to show shimmer (animation loade
     <com.elyeproj.loaderviewlibrary.LoaderTextView
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
-         app:corner="16" />
+         app:corners="16" />
     ```
 
 7. Setting the Text Style as BOLD would darken the loading shimmer
@@ -72,7 +72,7 @@ Android SDK API Version 15 and above.
 On your module `build.gradle`, add
 
     dependencies {
-        compile 'com.elyeproj.libraries:loaderviewlibrary:1.4.1'
+        implementation 'com.elyeproj.libraries:loaderviewlibrary:1.4.1'
     }
 
 ## What's new in 1.4.1
