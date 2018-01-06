@@ -6,14 +6,14 @@ group = 'com.elyeproj.libraries'
 version = '1.4.0'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 26
     buildToolsVersion '26.0.2'
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 25
         versionCode 11
         versionName "1.4.0"
+        targetSdkVersion 26
     }
     buildTypes {
         release {
@@ -26,7 +26,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:25.4.0'
+    compile 'com.android.support:appcompat-v7:26.1.0'
 }
 
 task generateSourcesJar(type: Jar) {
