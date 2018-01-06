@@ -105,4 +105,10 @@ public class LoaderImageView extends AppCompatImageView implements LoaderView {
         super.setImageResource(resId);
         loaderController.stopLoading();
     }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        loaderController.removeAnimatorUpdateListener();
+    }
 }
