@@ -6,4 +6,11 @@
         <attr name="use_gradient" format="boolean" />
         <attr name="corners" format="integer" />
     </declare-styleable>
+
+    <declare-styleable name="LoaderTextView">
+        <attr name="placeholder_resource" format="reference"/>
+        <attr name="placeholder_string_argument" format="string" />
+        <attr name="placeholder_int_argument" format="integer" />
+        <attr name="placeholder_float_argument" format="float" />
+    </declare-styleable>
 </resources>

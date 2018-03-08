@@ -27,7 +27,9 @@ import android.util.AttributeSet;
 
 public class LoaderTextView extends AppCompatTextView implements LoaderView {
 
+    private static final int NO_PLACEHOLDER = -1;
     private LoaderController loaderController;
+    private String placeholderText;
 
     public LoaderTextView(Context context) {
         super(context);
@@ -52,6 +54,8 @@ public class LoaderTextView extends AppCompatTextView implements LoaderView {
         loaderController.setUseGradient(typedArray.getBoolean(R.styleable.loader_view_use_gradient, LoaderConstant.USE_GRADIENT_DEFAULT));
         loaderController.setCorners(typedArray.getInt(R.styleable.loader_view_corners, LoaderConstant.CORNER_DEFAULT));
         typedArray.recycle();
+
+        checkPlaceholderAttributes(attrs);
     }
 
     @Override
@@ -103,5 +107,65 @@ public class LoaderTextView extends AppCompatTextView implements LoaderView {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         loaderController.removeAnimatorUpdateListener();
+    }
+
+    private void checkPlaceholderAttributes(AttributeSet attrs) {
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.LoaderTextView, 0, 0);
+        int placeholderTextRes =
+                typedArray.getResourceId(R.styleable.LoaderTextView_placeholder_resource, NO_PLACEHOLDER);
+        String stringArgument =
+                typedArray.getNonResourceString(R.styleable.LoaderTextView_placeholder_string_argument);
+        int intArgument =
+                typedArray.getInt(R.styleable.LoaderTextView_placeholder_int_argument, NO_PLACEHOLDER);
+        float floatPlaceholder = (float) NO_PLACEHOLDER;
+        float floatArgument =
+                typedArray.getFloat(R.styleable.LoaderTextView_placeholder_float_argument, floatPlaceholder);
+
+        if (placeholderTextRes != NO_PLACEHOLDER) {
+            Object argument = null;
+            if (stringArgument != null) {
+                argument = stringArgument;
+            }
+            else if (intArgument != NO_PLACEHOLDER) {
+                argument = intArgument;
+            }
+            else if (floatArgument != floatPlaceholder) {
+                argument = floatArgument;
+            }
+
+            placeholderText = getResources().getString(placeholderTextRes, argument);
+            measurePlaceholderTextAndSetMinWidth();
+        }
+
+        typedArray.recycle();
+    }
+
+    private void measurePlaceholderTextAndSetMinWidth() {
+        if (placeholderText == null) {
+            setMinimumWidth(0);
+            return;
+        }
+
+        float measuredWidth = getPaint().measureText(placeholderText);
+        setMinimumWidth((int) measuredWidth);
+    }
+
+    /**
+     * @return The text that is used to measure the required minimum width.
+     */
+    public String getPlaceholderText() {
+        return placeholderText;
+    }
+
+    /**
+     * Setting a placeholder text will not set any text on this {@code TextView}, but measure the minimum width
+     * based on this text, making the shimmer effect as large as the {@code placeholderText} width.
+     *
+     * @param placeholderText A text that will most likely be the actual text of this {@code TextView} later, so the
+     *                        shimmer effect has a width matching the text.
+     */
+    public void setPlaceholderText(final String placeholderText) {
+        this.placeholderText = placeholderText;
+        measurePlaceholderTextAndSetMinWidth();
     }
 }

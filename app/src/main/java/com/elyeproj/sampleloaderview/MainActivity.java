@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void postLoadData() {
+        ((TextView)findViewById(R.id.txt_presidents_title)).setText(getString(R.string.title, 1));
         ((TextView)findViewById(R.id.txt_name)).setText("Mr. Donald Trump");
         ((TextView)findViewById(R.id.txt_title)).setText("President of United State (2017 - now)");
         ((TextView)findViewById(R.id.txt_phone)).setText("+001 2345 6789");
