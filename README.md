@@ -30,6 +30,20 @@ Provide both TextView and ImageView the ability to show shimmer (animation loade
          android:layout_height="wrap_content"
          app:width_weight="0.4" />
     ```
+    
+    Alternatively, you can set a placeholder which will be used to measure the required minimum width, so the shimmer will
+    almost be as large as your text
+    ```xml
+    <com.elyeproj.loaderviewlibrary.LoaderTextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         app:placeholder_int_argument="1"
+         app:placeholder_resource="@string/resourceWithIntArgument" />
+    ```
+    
+    Referencing a string resource makes sure the shimmer respects text width in different
+    languages. You can optionally pass one `String`, `int` or `float` argument. If you need more than
+    one argument you have to use `setPlaceholder(String)` programmatically.
 
 4. Define the % height of the TextView that shows the loading animation with `height_weight`
     ```xml
