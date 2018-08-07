@@ -57,9 +57,17 @@ Provide both TextView and ImageView the ability to show shimmer (animation loade
 
 7. Setting the Text Style as BOLD would darken the loading shimmer
 
-8. Other feature of TextView and ImageView is still applicable.
+8. Use a custom shimmer color (note: if set, point 7 will not apply, your color will be used even if the Text Style is BOLD)
+    ```xml
+    <com.elyeproj.loaderviewlibrary.LoaderTextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         app:custom_color="@android:color/holo_green_dark" />
+    ```
+    
+9. Other feature of TextView and ImageView is still applicable.
 
-9. Reset and show shimmer (animation loader) again by calling the below API
+10. Reset and show shimmer (animation loader) again by calling the below API
     ```java
     myLoaderTextView.resetLoader();
     myLoaderImageView.resetLoader();
