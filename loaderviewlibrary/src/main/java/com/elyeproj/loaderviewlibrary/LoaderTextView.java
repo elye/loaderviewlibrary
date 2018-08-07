@@ -54,8 +54,8 @@ public class LoaderTextView extends AppCompatTextView implements LoaderView {
         loaderController.setHeightWeight(typedArray.getFloat(R.styleable.loader_view_height_weight, LoaderConstant.MAX_WEIGHT));
         loaderController.setUseGradient(typedArray.getBoolean(R.styleable.loader_view_use_gradient, LoaderConstant.USE_GRADIENT_DEFAULT));
         loaderController.setCorners(typedArray.getInt(R.styleable.loader_view_corners, LoaderConstant.CORNER_DEFAULT));
-        defaultColorResource = typedArray.getColor(R.styleable.loader_view_default_color, ContextCompat.getColor(getContext(), R.color.default_color));
-        darkerColorResource = typedArray.getColor(R.styleable.loader_view_darker_color, ContextCompat.getColor(getContext(), R.color.darker_color));
+        defaultColorResource = typedArray.getColor(R.styleable.loader_view_custom_color, ContextCompat.getColor(getContext(), R.color.default_color));
+        darkerColorResource = typedArray.getColor(R.styleable.loader_view_custom_color, ContextCompat.getColor(getContext(), R.color.darker_color));
         typedArray.recycle();
     }
 

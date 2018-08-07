@@ -52,7 +52,7 @@ public class LoaderImageView extends AppCompatImageView implements LoaderView {
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.loader_view, 0, 0);
         loaderController.setUseGradient(typedArray.getBoolean(R.styleable.loader_view_use_gradient, LoaderConstant.USE_GRADIENT_DEFAULT));
         loaderController.setCorners(typedArray.getInt(R.styleable.loader_view_corners, LoaderConstant.CORNER_DEFAULT));
-        defaultColorResource = typedArray.getColor(R.styleable.loader_view_default_color, ContextCompat.getColor(getContext(), R.color.default_color));
+        defaultColorResource = typedArray.getColor(R.styleable.loader_view_custom_color, ContextCompat.getColor(getContext(), R.color.default_color));
         typedArray.recycle();
     }
 
