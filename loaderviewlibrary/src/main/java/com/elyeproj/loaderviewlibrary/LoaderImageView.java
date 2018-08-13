@@ -23,12 +23,14 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 
 public class LoaderImageView extends AppCompatImageView implements LoaderView {
 
     private LoaderController loaderController;
+    private int defaultColorResource;
 
     public LoaderImageView(Context context) {
         super(context);
@@ -50,6 +52,7 @@ public class LoaderImageView extends AppCompatImageView implements LoaderView {
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.loader_view, 0, 0);
         loaderController.setUseGradient(typedArray.getBoolean(R.styleable.loader_view_use_gradient, LoaderConstant.USE_GRADIENT_DEFAULT));
         loaderController.setCorners(typedArray.getInt(R.styleable.loader_view_corners, LoaderConstant.CORNER_DEFAULT));
+        defaultColorResource = typedArray.getColor(R.styleable.loader_view_custom_color, ContextCompat.getColor(getContext(), R.color.default_color));
         typedArray.recycle();
     }
 
@@ -74,7 +77,7 @@ public class LoaderImageView extends AppCompatImageView implements LoaderView {
 
     @Override
     public void setRectColor(Paint rectPaint) {
-        rectPaint.setColor(LoaderConstant.COLOR_DEFAULT_GREY);
+        rectPaint.setColor(defaultColorResource);
     }
 
     @Override
