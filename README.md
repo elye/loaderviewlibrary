@@ -80,14 +80,15 @@ Android SDK API Version 15 and above.
 On your module `build.gradle`, add
 
     dependencies {
-        implementation 'com.elyeproj.libraries:loaderviewlibrary:1.4.1'
+        implementation 'com.elyeproj.libraries:loaderviewlibrary:1.5.0'
     }
 
-## What's new in 1.4.1
-1. Fix memory leak issue
+## What's new in 1.5.0
+1. Add custom color attribute
 
-## What's new in 1.4.0
-1. Support Corner Rectangle shimmer
+## What's new in 1.4.x
+1. (1.4.1) Fix memory leak issue
+2. (1.4.0) Support Corner Rectangle shimmer
 
 ## What's new in 1.3.0
 1. Support AppCompat
