@@ -142,5 +142,6 @@ class LoaderController implements ValueAnimator.AnimatorUpdateListener {
             valueAnimator.removeUpdateListener(this);
             valueAnimator.cancel();
         }
+        progress = 0f;
     }
 }
