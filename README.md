@@ -5,7 +5,7 @@
 ## What It Is
 Provide both TextView and ImageView the ability to show shimmer (animation loader) before any text or image is shown. Useful when waiting for data to be loaded from the network. Example below
 
-![Timer Image](https://static.wixstatic.com/media/d748c3_28381c0f110f4dc68fcd340b503f86a2~mv2.gif)
+![Loader Image](https://static.wixstatic.com/media/d748c3_28381c0f110f4dc68fcd340b503f86a2~mv2.gif)
 
 ## Features / Usage
 
@@ -80,8 +80,12 @@ Android SDK API Version 15 and above.
 On your module `build.gradle`, add
 
     dependencies {
-        implementation 'com.elyeproj.libraries:loaderviewlibrary:1.5.0'
+        implementation 'com.elyeproj.libraries:loaderviewlibrary:2.0.0'
     }
+
+## What's new in 2.0.0
+1. Migrate to AndroidX
+2. Fix issue of preventing partial overlay if view reused quickly in RecyclerView
 
 ## What's new in 1.5.0
 1. Add custom color attribute

@@ -3,7 +3,7 @@ apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'com.elyeproj.libraries'
-version = '1.5.0'
+version = '2.0.0'
 
 android {
     compileSdkVersion 28
@@ -12,8 +12,8 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 13
-        versionName "1.5.0"
+        versionCode 14
+        versionName "2.0.0"
     }
     buildTypes {
         release {
@@ -54,10 +54,10 @@ bintray {
         name = 'com.elyeproj.loaderviewlibrary'
 
         version {
-            name = '1.5.0-LoaderView'
+            name = '2.0.0-LoaderView'
             desc = 'Loader View Widget'
             released  = new Date()
-            vcsTag = '1.5.0'
+            vcsTag = '2.0.0'
         }
 
         licenses = ['Apache-2.0']
