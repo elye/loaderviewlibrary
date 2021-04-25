@@ -77,6 +77,18 @@ Provide both TextView and ImageView the ability to show shimmer (animation loade
 Android SDK API Version 15 and above.
 
 ## Importing the Library
+On your root `build.gradle`, add `maven { url  "https://dl.bintray.com/elye-project/maven" }` to the `allprojects` section e.g.
+
+    allprojects {
+        repositories {
+            google()
+            maven {
+                url  "https://dl.bintray.com/elye-project/maven"
+            }
+            mavenCentral()
+        }
+    }
+
 On your module `build.gradle`, add
 
     dependencies {
