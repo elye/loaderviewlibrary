@@ -26,7 +26,6 @@ if (secretPropsFile.exists()) {
 nexusPublishing {
     repositories {
         sonatype {
-            println 'Configure Hello Gradle' + ossrhUsername + ' ' + ossrhPassword
             stagingProfileId = sonatypeStagingProfileId
             username = ossrhUsername
             password = ossrhPassword
