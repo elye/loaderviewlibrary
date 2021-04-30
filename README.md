@@ -77,23 +77,18 @@ Provide both TextView and ImageView the ability to show shimmer (animation loade
 Android SDK API Version 15 and above.
 
 ## Importing the Library
-On your root `build.gradle`, add `maven { url  "https://dl.bintray.com/elye-project/maven" }` to the `allprojects` section e.g.
-
-    allprojects {
-        repositories {
-            google()
-            maven {
-                url  "https://dl.bintray.com/elye-project/maven"
-            }
-            mavenCentral()
-        }
-    }
-
+On your root `build.gradle`, add `mavenCentral()` to the `allprojects` section.
 On your module `build.gradle`, add
 
     dependencies {
-        implementation 'com.elyeproj.libraries:loaderviewlibrary:2.0.0'
+        implementation 'io.github.elye:loaderviewlibrary:3.0.0'
     }
+
+## What's new in 3.0.0
+1. Moved from JCenter to mavenCenter
+2. Fix some null crash issue
+
+**Note: only version 3.0.0 has been moved to mavenCenter**
 
 ## What's new in 2.0.0
 1. Migrate to AndroidX
@@ -101,14 +96,6 @@ On your module `build.gradle`, add
 
 ## What's new in 1.5.0
 1. Add custom color attribute
-
-## What's new in 1.4.x
-1. (1.4.1) Fix memory leak issue
-2. (1.4.0) Support Corner Rectangle shimmer
-
-## What's new in 1.3.0
-1. Support AppCompat
-2. Support TextView drawable
 
 
 ## Licence
