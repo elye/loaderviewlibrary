@@ -4,6 +4,16 @@ ext {
     PUBLISH_GROUP_ID = 'io.github.elye'
     PUBLISH_VERSION = '3.0.0'
     PUBLISH_ARTIFACT_ID = 'loaderviewlibrary'
+    PUBLISH_DESCRIPTION = 'LoaderView Android SDK'
+    PUBLISH_URL = 'https://github.com/elye/loaderviewlibrary'
+    PUBLISH_LICENSE_NAME = 'Apache License'
+    PUBLISH_LICENSE_URL = 'https://github.com/elye/loaderviewlibrary/blob/master/LICENSE'
+    PUBLISH_DEVELOPER_ID = 'elye'
+    PUBLISH_DEVELOPER_NAME = 'Elye Project'
+    PUBLISH_DEVELOPER_EMAIL = 'elye.project@gmail.com'
+    PUBLISH_SCM_CONNECTION = 'scm:git:github.com/elye/loaderviewlibrary.git'
+    PUBLISH_SCM_DEVELOPER_CONNECTION = 'scm:git:ssh://github.com/elye/loaderviewlibrary.git'
+    PUBLISH_SCM_URL = 'https://github.com/elye/loaderviewlibrary/tree/master'
 }
 
 apply from: "${rootProject.projectDir}/scripts/publish-module.gradle"

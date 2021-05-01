@@ -39,28 +39,28 @@ afterEvaluate {
                 // Mostly self-explanatory metadata
                 pom {
                     name = PUBLISH_ARTIFACT_ID
-                    description = 'LoaderView Android SDK'
-                    url = 'https://github.com/elye/loaderviewlibrary'
+                    description = PUBLISH_DESCRIPTION
+                    url = PUBLISH_URL
                     licenses {
                         license {
-                            name = 'Apache License'
-                            url = 'https://github.com/elye/loaderviewlibrary/blob/master/LICENSE'
+                            name = PUBLISH_LICENSE_NAME
+                            url = PUBLISH_LICENSE_URL
                         }
                     }
                     developers {
                         developer {
-                            id = 'elye'
-                            name = 'Elye Project'
-                            email = 'elye.project@gmail.com'
+                            id = PUBLISH_DEVELOPER_ID
+                            name = PUBLISH_DEVELOPER_NAME
+                            email = PUBLISH_DEVELOPER_EMAIL
                         }
                     }
 
                     // Version control info - if you're using GitHub, follow the
                     // format as seen here
                     scm {
-                        connection = 'scm:git:github.com/elye/loaderviewlibrary.git'
-                        developerConnection = 'scm:git:ssh://github.com/elye/loaderviewlibrary.git'
-                        url = 'https://github.com/elye/loaderviewlibrary/tree/master'
+                        connection = PUBLISH_SCM_CONNECTION
+                        developerConnection = PUBLISH_SCM_DEVELOPER_CONNECTION
+                        url = PUBLISH_SCM_URL
                     }
                 }
             }
