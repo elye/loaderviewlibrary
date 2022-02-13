@@ -16,7 +16,6 @@ package com.elyeproj.loaderviewlibrary;
  * limitations under the License.
  */
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -51,7 +50,6 @@ public class LoaderTextView extends AppCompatTextView implements LoaderView {
         init(attrs);
     }
 
-    @SuppressLint("SwitchIntDef")
     private void init(AttributeSet attrs) {
         loaderController = new LoaderController(this);
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.loader_view, 0, 0);
