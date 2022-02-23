@@ -9,8 +9,10 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.view.animation.LinearInterpolator;
+
 import androidx.core.text.TextUtilsCompat;
 import androidx.core.view.GravityCompat;
+
 import java.util.Locale;
 
 /*
@@ -91,13 +93,13 @@ class LoaderController implements ValueAnimator.AnimatorUpdateListener {
         GravityCompat.apply(loaderView.getLoaderGravity(),
                 Math.round(canvas.getWidth() * widthWeight),
                 Math.round(canvas.getHeight() * heightWeight),
-                new Rect(0, 0, canvas.getWidth(), canvas.getHeight()),
+                new Rect(Math.round(left_pad),
+                        Math.round(top_pad),
+                        Math.round(canvas.getWidth() - right_pad),
+                        Math.round(canvas.getHeight() - bottom_pad)),
                 outRect,
                 TextUtilsCompat.getLayoutDirectionFromLocale(Locale.getDefault()));
-        loaderContainer = new RectF(outRect.left + left_pad,
-                outRect.top + top_pad,
-                outRect.right - right_pad,
-                outRect.bottom - bottom_pad);
+        loaderContainer = new RectF(outRect.left, outRect.top, outRect.right, outRect.bottom);
     }
 
     public void startLoading() {
