@@ -24,4 +24,6 @@ interface LoaderView {
     void invalidate();
 
     boolean valueSet();
+
+    int getLoaderGravity();
 }

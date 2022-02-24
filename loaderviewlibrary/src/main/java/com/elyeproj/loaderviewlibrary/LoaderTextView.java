@@ -21,8 +21,10 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.content.ContextCompat;
 
@@ -31,6 +33,7 @@ public class LoaderTextView extends AppCompatTextView implements LoaderView {
     private LoaderController loaderController;
     private int defaultColorResource;
     private int darkerColorResource;
+    private int loaderGravity;
 
     public LoaderTextView(Context context) {
         super(context);
@@ -57,6 +60,23 @@ public class LoaderTextView extends AppCompatTextView implements LoaderView {
         defaultColorResource = typedArray.getColor(R.styleable.loader_view_custom_color, ContextCompat.getColor(getContext(), R.color.default_color));
         darkerColorResource = typedArray.getColor(R.styleable.loader_view_custom_color, ContextCompat.getColor(getContext(), R.color.darker_color));
         typedArray.recycle();
+        loaderGravity = getGravity();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) { // prefer text alignment when available.
+            final int verticalGravity = loaderGravity & Gravity.VERTICAL_GRAVITY_MASK;
+            switch (getTextAlignment()) {
+                case android.view.View.TEXT_ALIGNMENT_CENTER:
+                    loaderGravity = verticalGravity | Gravity.CENTER_HORIZONTAL;
+                    break;
+                case android.view.View.TEXT_ALIGNMENT_TEXT_END:
+                case android.view.View.TEXT_ALIGNMENT_VIEW_END:
+                    loaderGravity = verticalGravity | Gravity.END;
+                    break;
+                case android.view.View.TEXT_ALIGNMENT_TEXT_START:
+                case android.view.View.TEXT_ALIGNMENT_VIEW_START:
+                    loaderGravity = verticalGravity | Gravity.START;
+                    break;
+            }
+        }
     }
 
     @Override
@@ -102,6 +122,11 @@ public class LoaderTextView extends AppCompatTextView implements LoaderView {
     @Override
     public boolean valueSet() {
         return !TextUtils.isEmpty(getText());
+    }
+
+    @Override
+    public int getLoaderGravity() {
+        return loaderGravity;
     }
 
     @Override

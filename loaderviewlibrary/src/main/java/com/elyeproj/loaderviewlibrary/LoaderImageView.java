@@ -24,6 +24,7 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.content.ContextCompat;
 
@@ -83,6 +84,11 @@ public class LoaderImageView extends AppCompatImageView implements LoaderView {
     @Override
     public boolean valueSet() {
         return (getDrawable() != null);
+    }
+
+    @Override
+    public int getLoaderGravity() {
+        return Gravity.NO_GRAVITY;
     }
 
     @Override

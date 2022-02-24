@@ -5,9 +5,15 @@ import android.animation.ValueAnimator;
 import android.graphics.Canvas;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.view.animation.LinearInterpolator;
+
+import androidx.core.text.TextUtilsCompat;
+import androidx.core.view.GravityCompat;
+
+import java.util.Locale;
 
 /*
  * Copyright 2016 Elye Project
@@ -36,6 +42,7 @@ class LoaderController implements ValueAnimator.AnimatorUpdateListener {
     private float heightWeight = LoaderConstant.MAX_WEIGHT;
     private boolean useGradient = LoaderConstant.USE_GRADIENT_DEFAULT;
     private int corners = LoaderConstant.CORNER_DEFAULT;
+    private RectF loaderContainer;
 
     private final static int MAX_COLOR_CONSTANT_VALUE = 255;
     private final static int ANIMATION_CYCLE_DURATION = 750; //milis
@@ -56,21 +63,17 @@ class LoaderController implements ValueAnimator.AnimatorUpdateListener {
     }
 
     public void onDraw(Canvas canvas, float left_pad, float top_pad, float right_pad, float bottom_pad) {
-        float margin_height = canvas.getHeight() * (1 - heightWeight) / 2;
         rectPaint.setAlpha((int) (progress * MAX_COLOR_CONSTANT_VALUE));
         if (useGradient) {
             prepareGradient(canvas.getWidth() * widthWeight);
         }
-        canvas.drawRoundRect(new RectF(0 + left_pad,
-                        margin_height + top_pad,
-                        canvas.getWidth() * widthWeight - right_pad,
-                        canvas.getHeight() - margin_height - bottom_pad),
-                corners, corners,
-                rectPaint);
+        prepareLoaderContainer(canvas, left_pad, top_pad, right_pad, bottom_pad);
+        canvas.drawRoundRect(loaderContainer, corners, corners, rectPaint);
     }
 
     public void onSizeChanged() {
         linearGradient = null;
+        loaderContainer = null;
         startLoading();
     }
 
@@ -80,6 +83,23 @@ class LoaderController implements ValueAnimator.AnimatorUpdateListener {
                     LoaderConstant.COLOR_DEFAULT_GRADIENT, Shader.TileMode.MIRROR);
         }
         rectPaint.setShader(linearGradient);
+    }
+
+    private void prepareLoaderContainer(Canvas canvas, float left_pad, float top_pad, float right_pad, float bottom_pad) {
+        if (loaderContainer != null) {
+            return;
+        }
+        final Rect outRect = new Rect();
+        GravityCompat.apply(loaderView.getLoaderGravity(),
+                Math.round(canvas.getWidth() * widthWeight),
+                Math.round(canvas.getHeight() * heightWeight),
+                new Rect(Math.round(left_pad),
+                        Math.round(top_pad),
+                        Math.round(canvas.getWidth() - right_pad),
+                        Math.round(canvas.getHeight() - bottom_pad)),
+                outRect,
+                TextUtilsCompat.getLayoutDirectionFromLocale(Locale.getDefault()));
+        loaderContainer = new RectF(outRect.left, outRect.top, outRect.right, outRect.bottom);
     }
 
     public void startLoading() {
